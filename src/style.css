@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  font-family: Inter, sans-serif;
+
+  --Soft-orange: hsl(35, 77%, 62%);
+  --Soft-red: hsl(5, 85%, 63%);
+
+  --Off-white: hsl(36, 100%, 99%);
+  --Grayish-blue: hsl(233, 8%, 79%);
+  --Dark-grayish-blue: hsl(236, 13%, 42%);
+  --Very-dark-blue: hsl(240, 100%, 5%);
+}
+
+body {
+  font-size: 1.5rem;
+  background: var(--Off-white);
+
+  
+
+}
+
+.page{
+  width: 90rem;
+  margin-inline: auto;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 0 3rem 0;
+}
+
+nav .buttons{
+  display: flex;
+  gap: 3rem;
+}
+
+nav button{
+  visibility: hidden;
+}
+
+nav .buttons p{
+  color: var(--Dark-grayish-blue);
+  transition: transform .1s;
+}
+
+nav .buttons p:hover{
+  cursor: pointer;
+  color: var(--Soft-orange);
+  transform: scale(1.1);
+}
+
+nav .close-menu{
+display: none;
+}
+
+main{
+  display: grid;
+  grid-template-columns: auto auto 300px;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  'topo topo right'
+  'left mid right';
+  gap: 2rem;
+}
+
+main  img{
+  grid-area: topo;
+  width: 58rem;
+}
+
+main h1{
+  grid-area: left;
+  font-size: 48px;
+  line-height: 4.3rem;
+}
+
+main h4{
+  grid-area: mid;
+  color: var(--dark-grayish-blue);
+  font-weight: 400;
+}
+
+main h4 button{
+  background-color: var(--Soft-red);
+  color: var(--Off-white);
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-top: 2rem;
+  transition: transform .1s;
+}
+
+main h4 button:hover{
+  cursor: pointer;
+  background-color: var(--Very-dark-blue);
+  transform: scale(1.1);
+  
+}
+
+main .side-bar{
+  grid-area: right;
+  background-color: var(--Very-dark-blue);
+  width: 300px;
+}
+
+main .side-bar h2{
+  margin: 2rem;
+  color: var(--Soft-orange);
+  font-size: 3rem;
+}
+
+main .side-bar .article{
+  border-bottom: 1px solid var(--Off-white);
+  margin: 2rem;
+}
+
+main .side-bar .article:nth-child(4){
+  border: none;
+}
+
+main .side-bar .article h3{
+  color: var(--Off-white);
+  transition: transform .1s;
+}
+
+main .side-bar .article h3:hover{
+  cursor: pointer;
+  color: var(--Soft-orange);
+  transform: scale(1.1);
+}
+
+main .side-bar .article p {
+  padding-bottom: 2rem;
+  color: var(--Grayish-blue);
+}
+
+.trends{
+  display: flex;
+  margin-top: 2rem;
+}
+
+.trends .trend{
+  display: flex;
+}
+
+.trends .trend img{
+  width: 7rem;
+}
+
+.trends .trend .texts{
+  margin-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.trends .trend .texts h4{
+  font-size: 3rem;
+  color: var(--Grayish-blue);
+}
+
+.trends .trend .texts h5{
+  font-weight: 900;
+  transition: transform .1s;
+}
+
+.trends .trend .texts h5:hover{
+  cursor: pointer;
+  color: var(--Soft-red);
+  transform: scale(1.1);
+}
+
+.attribution{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.attribution a{
+  text-decoration: none;
+  color: var(--Soft-red);
+}
+
+@media (max-width: 500px){
+  .page{
+    width: 95%;
+    margin: 2rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main img{
+    width: 100%;
+    height: 30rem;
+  }
+  main h1,
+  main h4,
+  main .side-bar {
+    width: 100%;
+  }
+
+  .trends{
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .trends .trend img{
+    width: 10rem;
+  }
+
+
+
+  nav .buttons{
+    flex-direction: column;
+    position:absolute;
+    left: 15rem;
+    top: .01rem;
+    z-index: 2;
+    background-color: var(--Off-white);
+    width: 50%;
+    height: 100vh;
+    padding-top: 15rem;
+    padding-left: 2rem;
+    margin-left: 10rem;
+
+    transform: translateX(100%);
+
+    visibility: initial;
+
+  }
+
+  nav .open-menu{
+    visibility: initial;
+
+    border: none;
+  }
+
+  nav .close-menu{
+    z-index: 3;
+    border: none;
+    background-color: var(--Off-white);
+  }
+
+
+}
+
+body.menu-expanded{
+  overflow: hidden;
+}
+
+body.menu-expanded .buttons{
+  transform: translateX(0);
+}
+
+body.menu-expanded nav .close-menu{
+ display: block;
+ color: black;
+ visibility: initial;
+}
+
+body.menu-expanded nav .open-menu{
+  display: none;
+}
